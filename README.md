@@ -228,6 +228,10 @@ Makes a new volume when set to `true`.
 
 The default is `false`.
 
+#### volume\_size
+
+Set the volume size in GB
+
 #### snapshot\_id
 
 When set, will make a volume from that snapshot id.
@@ -261,13 +265,16 @@ Timeout to wait for volume to become available.  If a large volume is provisione
 #### Example
 
 ```yaml
-block_device_mapping:
-  make_volume: true
-  snapshot_id: 00000-111111-0000222-000
-  device_name: vda
-  availability_zone: nova
-  delete_on_termination: false
-  creation_timeout: 120
+driver:
+  [--snip--]
+  block_device_mapping:
+    make_volume: true
+    volume_size:
+    snapshot_id: 00000-111111-0000222-000
+    device_name: vda
+    availability_zone: nova
+    delete_on_termination: false
+    creation_timeout: 120
 ```
 
 ## Network and Communication Configuration
